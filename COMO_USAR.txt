@@ -1,0 +1,27 @@
+=========================================
+       SISTEMA IN SEGES 65/2021
+=========================================
+
+✅ SISTEMA LIMPO E ORGANIZADO!
+
+PARA USAR:
+----------
+1. Duplo clique em: EXECUTAR.bat
+2. O navegador abrirá automaticamente
+
+PRIMEIRA VEZ?
+-------------
+1. Execute: CONFIGURAR_API.bat
+2. Siga as instruções para API key
+
+ESTRUTURA FINAL:
+----------------
+• 1 arquivo principal: src/app.py
+• 3 arquivos na raiz:
+  - EXECUTAR.bat (usar sistema)
+  - CONFIGURAR_API.bat (configurar)
+  - INSTALAR.bat (instalar)
+
+=========================================
+Sistema 100% pronto e funcionando! 🚀
+========================================= 

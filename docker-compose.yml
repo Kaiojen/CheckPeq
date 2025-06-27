@@ -1,0 +1,86 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sistema-verificacao-app
+    ports:
+      - "8501:8501"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - FLASK_ENV=production
+      - DATABASE_URL=sqlite:////app/database/verificacoes.db
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./uploads:/app/uploads
+      - ./reports:/app/reports
+      - ./database:/app/database
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  redis:
+    image: redis:7-alpine
+    container_name: sistema-verificacao-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  nginx:
+    image: nginx:alpine
+    container_name: sistema-verificacao-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./static:/var/www/static:ro
+    depends_on:
+      - app
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  backup:
+    image: alpine:latest
+    container_name: sistema-verificacao-backup
+    volumes:
+      - ./database:/backup/database:ro
+      - ./reports:/backup/reports:ro
+      - ./backups:/backups
+    command: >
+      sh -c "while true; do
+        tar -czf /backups/backup-$$(date +%Y%m%d-%H%M%S).tar.gz /backup/database /backup/reports;
+        find /backups -name 'backup-*.tar.gz' -mtime +7 -delete;
+        sleep 86400;
+      done"
+    networks:
+      - app-network
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+
+networks:
+  app-network:
+    driver: bridge

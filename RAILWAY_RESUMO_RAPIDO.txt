@@ -1,0 +1,48 @@
+====================================================
+        DEPLOY NO RAILWAY - RESUMO RÁPIDO
+====================================================
+
+RAILWAY É GRÁTIS? SIM! 
+✓ $5 dólares de crédito por mês (GRÁTIS)
+✓ Não precisa cartão de crédito
+✓ Suficiente para projetos pequenos
+
+----------------------------------------------------
+         🚀 APENAS 5 PASSOS SIMPLES!
+----------------------------------------------------
+
+PASSO 1: EXECUTE O ASSISTENTE
+   > SUBIR_GIT_RAILWAY.bat
+
+PASSO 2: SIGA AS OPÇÕES
+   [1] Verificar Git
+   [2] Configurar Git  
+   [3] Criar .gitignore
+   [4] Subir pro GitHub
+   [5] Deploy no Railway
+
+PASSO 3: CRIE CONTA NO GITHUB
+   - https://github.com
+   - É grátis também!
+
+PASSO 4: CRIE CONTA NO RAILWAY
+   - https://railway.app
+   - Login com GitHub
+
+PASSO 5: CONFIGURE 3 VARIÁVEIS
+   GEMINI_API_KEY = sua_chave
+   FLASK_SECRET_KEY = qualquer_senha
+   PORT = 5000
+
+----------------------------------------------------
+            ✨ PRONTO! SITE NO AR!
+----------------------------------------------------
+
+COMANDOS ÚTEIS DEPOIS:
+- Atualizar: git add . && git commit -m "update" && git push
+- Ver logs: No painel do Railway
+- Monitorar: Railway mostra uso dos $5
+
+PROBLEMAS? 
+- Execute: DIAGNOSTICO.bat
+- Leia: GUIA_RAILWAY_COMPLETO.md 
