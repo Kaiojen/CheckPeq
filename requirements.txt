@@ -1,10 +1,10 @@
 # Core Framework
-streamlit==1.32.2
-Flask==3.0.0
+streamlit==1.28.1
+Flask==2.3.3
 flask-cors==4.0.0
 
 # Database
-Flask-SQLAlchemy==3.1.1
+Flask-SQLAlchemy==3.0.5
 SQLAlchemy==2.0.23
 
 # Data Processing
@@ -13,45 +13,34 @@ numpy==1.24.3
 openpyxl==3.1.2
 
 # PDF Processing
-pdfplumber==0.10.3
-PyMuPDF==1.23.8
-pypdfium2==4.25.0
+pdfplumber==0.9.0
+PyMuPDF==1.23.5
+# pypdfium2 removido - causa erro de compilação no Railway
 
 # Document Processing
-python-docx==1.2.0
-reportlab==4.4.2
-pillow==11.2.1
+python-docx==1.1.0
+reportlab==4.0.7
+pillow==10.1.0
 
 # AI Integration
-google-generativeai==0.8.1
+google-generativeai==0.3.2
 
 # Security
 python-dotenv==1.0.0
 bcrypt==4.1.2
 python-magic==0.4.27
-# python-magic-bin==0.4.14  # Windows only - removido para Railway
 
 # Web & API
 requests==2.31.0
-Werkzeug==3.0.1
-
-# Development & Testing
-pytest==7.4.3
-pytest-cov==4.1.0
-pytest-asyncio==0.21.1
-mypy==1.7.1
-black==23.11.0
-flake8==6.1.0
+Werkzeug==2.3.7
 
 # Logging & Monitoring
 python-json-logger==2.0.7
 structlog==23.2.0
 
-# Cache (optional)
-redis==5.0.1
-
-# Async Processing (optional)
-celery==5.3.4
-
 # Production Server
 gunicorn==21.2.0
+
+# Opcional - comentar se der erro
+# redis==5.0.1
+# celery==5.3.4 
