@@ -20,7 +20,7 @@ PyMuPDF==1.21.1
 # Document Processing
 python-docx==1.1.0
 reportlab==4.0.7
-pillow==10.1.0
+pillow==9.5.0
 
 # AI Integration
 # (adicione aqui se for necessário)
