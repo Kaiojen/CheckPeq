@@ -8,27 +8,23 @@ Flask-SQLAlchemy==3.0.5
 SQLAlchemy==2.0.23
 
 # Data Processing
-pandas>=2.1.0
-numpy>=1.25.0
+pandas==2.1.3
+numpy==1.26.4
 openpyxl==3.1.2
 
-# PDF Processing
+# PDF Processing (Somente os que não exigem compilação)
 pdfplumber==0.9.0
 PyMuPDF==1.21.1
-# pypdfium2 removido - causa erro de compilação no Railway
 
 # Document Processing
 python-docx==1.1.0
-reportlab==4.0.7
-pillow==9.5.0
-
-# AI Integration
-# (adicione aqui se for necessário)
+reportlab==3.6.12  # Versão anterior compatível com wheel
+pillow==9.5.0      # Última versão estável compatível com Python 3.13 sem erro de build
 
 # Security
 python-dotenv==1.0.0
 bcrypt==4.1.2
-python-magic==0.4.27
+# python-magic==0.4.27  # REMOVIDO: exige libmagic no sistema (incompatível com Streamlit Cloud)
 
 # Web & API
 requests==2.31.0
@@ -41,6 +37,6 @@ structlog==23.2.0
 # Production Server
 gunicorn==21.2.0
 
-# Opcional - comentar se der erro
+# Comentados por padrão (incompatíveis sem serviços auxiliares)
 # redis==5.0.1
 # celery==5.3.4
